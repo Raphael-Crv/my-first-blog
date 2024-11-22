@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma colocation</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<body class="home-page">
+    <div class="container">
+        <div class="page-header">
+            <h1><a href="/">La petite vie de ma colocation <br>(AKA la paradoxe)</a></h1>
+        </div>
+    
+
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+              
+            <div class="characters">
+                <h2>Colocataires</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Colocataire</th>
+                            <th>État</th>
+                            <th>Lieu</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for character in characters %}
+                        <tr>
+                            <td><a href="{% url 'character_detail' id_character=character.id_character %}">{{ character.id_character }}</a></td>
+                            <td>{{ character.etat }}</td>
+                            <td>{{ character.lieu.id_equip }}</td>
+                            <td><img src="{{ character.photo }}" alt="Photo de {{ character.id_character }}" style="width: 75px; height: auto;"></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+    
+            <div class="equipments">
+                <h2>Lieux</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Lieu</th>
+                            <th>Disponibilité</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for equipement in equipements %}
+                        <tr>
+                            <td>{{ equipement.id_equip }}</td> 
+                            <td>{{ equipement.disponibilite }}</td>
+                            <td><img src="{{ equipement.photo }}" alt="Photo de {{ equipement.id_equip }}" style="width: 125px; height: auto;"></td>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+    
+            <div class="footer">
+                <p>Nombre de repas mangés à la coloc: {{ passages_cuisine }}</p>
+                <p>Nombre de nuits passées: {{ min_passages_lit }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

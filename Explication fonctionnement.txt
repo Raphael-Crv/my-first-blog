@@ -1,0 +1,14 @@
+Petite explication du fonctionnement du site :
+Nous avons des colocataires et des lieux. Chaque colocataire se trouve dans un lieu qui le met dans un certain état.
+À partir de cet état, le colocataire ne peut aller que dans un certain lieu suivant cet ordre :
+lit -> salle de bain -> cuisine -> centrale -> gymnase -> cuisine -> lit.
+Chaque fois qu'un colocataire passe dans la cuisine, le compteur en bas de page, qui compte le nombre de repas mangés, augmente de 1.
+Il y a un autre compteur en bas de page qui compte le nombre de nuits. Celui-ci m'a demandé un peu plus de travail :
+Une nuit est considérée comme passée quand tous les colocataires ont fait leur nuit (sont passés par le lit).
+De plus, les colocataires doivent avoir des rythmes un peu coordonnés !
+En effet, pour qu'un colocataire puisse entamer sa 2ème nuit, par exemple, il faut que tous les autres colocataires aient déjà fait une première nuit.
+Voilà le fonctionnement global du site pour ne pas être bloqué, mais normalement en testant un peu sur le site, on comprend tout.
+Des messages clairs s'affichent pour guider l'utilisateur, donc le site devrait être assez intuitif.
+
+
+

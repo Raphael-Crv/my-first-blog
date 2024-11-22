@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Character Detail</title>
+    <!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<body class="detail-page"> 
+    {% block content %}
+    <div class="detail-container">
+        <h1>
+            <a href="/">{{ character.id_character }}</a>
+        </h1>
+        <img src="{{ character.photo }}" alt="Photo de {{ character.id_character }}" class="character-image">
+        <form method="POST" class="post-form">{% csrf_token %}
+            <b>Changer :</b> {{ form.as_ul }}
+            <button type="submit" class="btn">OK</button>
+            <a href="{% url 'character_list' %}" class="btn">Retour</a>
+        </form>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% endblock %}
+</body>
+</html>
+
