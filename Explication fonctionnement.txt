@@ -3,7 +3,7 @@ Nous avons des colocataires et des lieux. Chaque colocataire se trouve dans un l
 À partir de cet état, le colocataire ne peut aller que dans un certain lieu suivant cet ordre :
 lit -> salle de bain -> cuisine -> centrale -> gymnase -> cuisine -> lit.
 Chaque fois qu'un colocataire passe dans la cuisine, le compteur en bas de page, qui compte le nombre de repas mangés, augmente de 1.
-Il y a un autre compteur en bas de page qui compte le nombre de nuits. Celui-ci m'a demandé un peu plus de travail :
+Il y a un autre compteur en bas de page qui compte le nombre de nuits. Celui-ci m'a posé pas mal de problèmes mais je m'en suis sorti! :
 Une nuit est considérée comme passée quand tous les colocataires ont fait leur nuit (sont passés par le lit).
 De plus, les colocataires doivent avoir des rythmes un peu coordonnés !
 En effet, pour qu'un colocataire puisse entamer sa 2ème nuit, par exemple, il faut que tous les autres colocataires aient déjà fait une première nuit.
